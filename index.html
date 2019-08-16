@@ -23,6 +23,9 @@
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
       <!-- Latest compiled JavaScript -->
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	   
+      <script type="text/javascript" src="https://dl.frontapp.com/libs/frontjs.min.js"></script>
+	   
    </head>
    <body>
       <script>
@@ -52,7 +55,12 @@
          .then(response => response.json())
          .then(data => {
 		 	console.log(data);
-			alert(JSON.stringify(data)); // Prints result from `response.json()` in getRequest
+			Front.dialog('alert', {
+    				title: 'Fixture Data',
+    				message: data,
+  				}, function () {
+    				console.log('Alert closed');
+  			});
          })
          .catch(error => console.error(error))
 		 
