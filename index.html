@@ -55,16 +55,16 @@
          .then(response => response.json())
          .then(data => {
 		 	console.log(data);
-			Front.report({
-				    title: 'Title of the report',
-				    message: data.toString();
-				}, function() {
-				    console.log('User closed the report');
-				});
-					 })
+			Front.dialog('alert', {
+    				title: 'Fixture Data',
+    				message: data.toString(),
+  				}, function () {
+    				console.log('Alert closed');
+  			});
+         })
          .catch(error => console.error(error))
-		 
          }
+		 
       </script>
       <span align="Center">
          <b>
