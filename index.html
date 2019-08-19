@@ -55,10 +55,11 @@
          .then(response => response.json())
          .then(data => {
 		 	console.log(data);
-			Front.dialog('alert', {
-    				title: 'Fixture Data',
-    				message: data.toString(),
-  				}, function () {
+			Front.fuzzylist({
+			    items: [
+				data
+			    ]
+			}, function () {
     				console.log('Alert closed');
   			});
          })
