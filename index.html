@@ -58,12 +58,15 @@
 			Front.fuzzylist({
 			    items: [
 				{title: 'Options 1'},
-        			{title: 'Options 2'},
-       				{title: 'Options 3'}
+				{title: 'Options 2'},
+				{title: 'Options 3'}
 			    ]
-			}, function () {
-    				console.log('Alert closed');
-  			});
+			}, function (item) {
+			    if (item)
+				console.log('User selected', item.title);
+			    else
+				console.log('User canceled');
+			});
          })
          .catch(error => console.error(error))
 		 
